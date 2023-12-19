@@ -35,8 +35,11 @@ function reverse(a) {
 
 async function main() {
 	const { hostname, port } = new url.URL(argv.o);
-	const username = argv.u;
+	// const username = argv.u;
 	const password = argv.p;
+	const username = "0xE3E7f26a22f5227cDaa643Bc9aE458b3114301D1";
+
+	console.log("username", username);
 
 	const stratum = new StratumClient(port, hostname);
 
@@ -185,7 +188,7 @@ async function main() {
 
 	console.log("subscribe");
 	// [ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("mining.subscribe"); // for atomic proxy
-	[ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("mining.subscribe");
+	[ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("eth_submitLogin", username);
 	
 
 	console.log("subscriptionDetails", subscriptionDetails);
