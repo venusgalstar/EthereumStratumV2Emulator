@@ -188,7 +188,7 @@ async function main() {
 
 	console.log("subscribe");
 	// [ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("mining.subscribe"); // for atomic proxy
-	[ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("eth_submitLogin", username);
+	[ subscriptionDetails, extranonce1, extranonce2_size ] = await stratum.send("eth_submitLogin", username, password);
 	
 
 	console.log("subscriptionDetails", subscriptionDetails);
